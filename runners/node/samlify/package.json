@@ -1,0 +1,8 @@
+{
+  "name": "rn-samlify",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Runner for samlify (SAML service provider) against Keycloak/RHBK as IdP. First draft. The optional schema validator version is my expectation; confirm with npm view.",
+  "dependencies": { "samlify": "2.13.1", "express": "4.21.2" },
+  "optionalDependencies": { "@authenio/samlify-node-xmllint": "2.0.0" }
+}

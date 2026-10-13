@@ -1,0 +1,8 @@
+{
+  "name": "rn-better-auth",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Runner for better-auth (generic OAuth plugin) against Keycloak/RHBK. First draft.",
+  "dependencies": { "better-auth": "1.7.1" }
+}

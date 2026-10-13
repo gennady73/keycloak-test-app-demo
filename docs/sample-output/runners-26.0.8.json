@@ -1,0 +1,446 @@
+{
+ "server_version": "26.0.8",
+ "issuer": "https://192.0.2.10:8460/realms/fx-runner",
+ "generated": "2026-10-12T22:40:25",
+ "runners": [
+  {
+   "id": "http-probe",
+   "language": "python",
+   "library": "(none, stdlib)",
+   "version": "-",
+   "protocol": "oidc",
+   "status": "supported",
+   "deprecation": null,
+   "build_state": null,
+   "checks": [
+    {
+     "id": "D3",
+     "title": "Path probes: '//', '..', ';' (encoded slash is recorded only)",
+     "doc": "UG26.4 \u00a72.6.1 ('..', '//' from 26.4.4); semicolon from 26.4.9 (design v0.3 C3; UG26.4 \u00a72.11.3; UG26.6 \u00a72.10.48)",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "plain": 200,
+      "double_slash": 200,
+      "dot_dot": 200,
+      "semicolon": 200,
+      "encoded_slash": 404
+     }
+    },
+    {
+     "id": "C16",
+     "title": "Direct access grant with wrong password",
+     "doc": "UG26.6 \u00a72.10.38",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "http_status": 401,
+      "error": "invalid_grant"
+     }
+    },
+    {
+     "id": "F5",
+     "title": "Client credentials (service account) token",
+     "doc": "design v0.3 \u00a77 F5; UG26.2 \u00a72.9.7",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "http_status": 200,
+      "token_type": "Bearer",
+      "refresh_token_issued": false,
+      "client_id_claim": "rn-svc",
+      "azp": "rn-svc",
+      "issuer_matches": true
+     }
+    }
+   ],
+   "state": "",
+   "claims": {
+    "access_token": {
+     "exp": 1791834316,
+     "aud": "account",
+     "acr": "1",
+     "scope": "email profile",
+     "azp": "rn-svc",
+     "iss": "https://192.0.2.10:8460/realms/fx-runner",
+     "client_id": "rn-svc",
+     "iat": 1791834016,
+     "typ": "Bearer",
+     "has_sub": true,
+     "preferred_username_present": true
+    }
+   }
+  },
+  {
+   "id": "plain-http-code",
+   "language": "python",
+   "library": "(none, stdlib)",
+   "version": "-",
+   "protocol": "oidc",
+   "status": "supported",
+   "deprecation": null,
+   "build_state": null,
+   "checks": [
+    {
+     "id": "F1",
+     "title": "Authorization code flow with client secret",
+     "doc": "design v0.3 \u00a77 F1",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "http_status": 200,
+      "token_obtained": true,
+      "issuer_matches": true,
+      "audience_ok": true,
+      "nonce_ok": true,
+      "refresh_token_issued": true
+     }
+    },
+    {
+     "id": "F4",
+     "title": "Format of session_state and sid",
+     "doc": "UG26.6 \u00a72.10.11",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "sid_format": "uuid",
+      "session_state_format": "uuid"
+     }
+    },
+    {
+     "id": "F2",
+     "title": "Refresh token grant",
+     "doc": "design v0.3 \u00a77 F2",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "http_status": 200,
+      "refreshed": true,
+      "new_refresh_token": true
+     }
+    }
+   ],
+   "state": "",
+   "claims": {
+    "id_token": {
+     "iss": "https://192.0.2.10:8460/realms/fx-runner",
+     "acr": "1",
+     "exp": 1791834317,
+     "typ": "ID",
+     "aud": "rn-plain",
+     "azp": "rn-plain",
+     "iat": 1791834017,
+     "auth_time": 1791834017,
+     "has_sub": true,
+     "preferred_username_present": true,
+     "sid_format": "uuid",
+     "nonce_present": true
+    },
+    "access_token": {
+     "iss": "https://192.0.2.10:8460/realms/fx-runner",
+     "acr": "1",
+     "exp": 1791834317,
+     "typ": "Bearer",
+     "azp": "rn-plain",
+     "iat": 1791834017,
+     "auth_time": 1791834017,
+     "scope": "openid email profile",
+     "has_sub": true,
+     "preferred_username_present": true,
+     "sid_format": "uuid"
+    }
+   }
+  },
+  {
+   "id": "passport-oauth2",
+   "language": "node",
+   "library": "passport-oauth2",
+   "version": "1.8.0",
+   "protocol": "oidc",
+   "status": "supported",
+   "deprecation": null,
+   "build_state": "ran on 26.0.8, 26.2.5, 26.6.4",
+   "checks": [
+    {
+     "id": "F1",
+     "title": "Authorization code flow with client secret",
+     "doc": "design v0.3 \u00a77 F1",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "token_obtained": true,
+      "id_token_present": true,
+      "issuer_matches": true,
+      "audience_ok": true,
+      "refresh_token_issued": true
+     }
+    },
+    {
+     "id": "F4",
+     "title": "Format of session_state and sid",
+     "doc": "UG26.6 \u00a72.10.11",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "sid_format": "uuid",
+      "session_state_format": "uuid"
+     }
+    },
+    {
+     "id": "F2",
+     "title": "Refresh token grant",
+     "doc": "design v0.3 \u00a77 F2",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "refreshed": true,
+      "new_refresh_token": true
+     }
+    }
+   ],
+   "state": "",
+   "claims": {
+    "id_token": {
+     "iss": "https://192.0.2.10:8460/realms/fx-runner",
+     "aud": "rn-node",
+     "azp": "rn-node",
+     "typ": "ID",
+     "exp": 1791834319,
+     "iat": 1791834019,
+     "auth_time": 1791834019,
+     "acr": "1",
+     "has_sub": true,
+     "sid_format": "uuid"
+    },
+    "access_token": {
+     "iss": "https://192.0.2.10:8460/realms/fx-runner",
+     "azp": "rn-node",
+     "typ": "Bearer",
+     "exp": 1791834319,
+     "iat": 1791834019,
+     "auth_time": 1791834019,
+     "acr": "1",
+     "scope": "openid email profile",
+     "has_sub": true,
+     "sid_format": "uuid"
+    }
+   }
+  },
+  {
+   "id": "flask-oidc",
+   "language": "python",
+   "library": "flask-oidc",
+   "version": "2.4.0",
+   "protocol": "oidc",
+   "status": "supported",
+   "deprecation": null,
+   "build_state": "ran on 26.0.8, 26.2.5, 26.6.4 (refresh not exercised)",
+   "checks": [
+    {
+     "id": "F1",
+     "title": "Authorization code flow with client secret",
+     "doc": "design v0.3 \u00a77 F1",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "audience_ok": true,
+      "id_token_present": true,
+      "issuer_matches": true,
+      "refresh_token_issued": true,
+      "token_obtained": true
+     }
+    },
+    {
+     "id": "F4",
+     "title": "Format of session_state and sid",
+     "doc": "UG26.6 \u00a72.10.11",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "session_state_format": "uuid",
+      "sid_format": "uuid"
+     }
+    },
+    {
+     "id": "F2",
+     "title": "Refresh token grant",
+     "doc": "design v0.3 \u00a77 F2",
+     "verdict": "skipped",
+     "detail": "first draft: flask-oidc refreshes inside require_login; no explicit refresh call is made yet",
+     "observed": {}
+    }
+   ],
+   "state": "",
+   "claims": {
+    "access_token": {
+     "acr": "1",
+     "auth_time": 1791834020,
+     "azp": "rn-flask",
+     "exp": 1791834320,
+     "has_sub": true,
+     "iat": 1791834020,
+     "iss": "https://192.0.2.10:8460/realms/fx-runner",
+     "preferred_username_present": true,
+     "scope": "openid email profile",
+     "sid_format": "uuid",
+     "typ": "Bearer"
+    },
+    "id_token": {
+     "acr": "1",
+     "aud": "rn-flask",
+     "auth_time": 1791834020,
+     "azp": "rn-flask",
+     "exp": 1791834320,
+     "has_sub": true,
+     "iat": 1791834020,
+     "iss": "https://192.0.2.10:8460/realms/fx-runner",
+     "nonce_present": true,
+     "preferred_username_present": true,
+     "sid_format": "uuid",
+     "typ": "ID"
+    }
+   }
+  },
+  {
+   "id": "samlify",
+   "language": "node",
+   "library": "samlify",
+   "version": "2.13.1",
+   "protocol": "saml",
+   "status": "supported",
+   "deprecation": null,
+   "build_state": "ran on 26.0.8, 26.2.5, 26.6.4",
+   "checks": [
+    {
+     "id": "S2",
+     "title": "SAML SP-initiated login accepted (response validated by the library)",
+     "doc": "design v0.3 \u00a77 (SAML); no documented difference 26.0-26.6 for Keycloak acting as IdP (UG26.4 \u00a72.15.23 only with Encrypt Assertions)",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "login_ok": true,
+      "in_response_to_matches": true,
+      "idp_issuer_matches": true,
+      "schema_validator": "@authenio/samlify-node-xmllint"
+     }
+    },
+    {
+     "id": "S3",
+     "title": "SAML NameID and attribute delivered",
+     "doc": "as S2",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "name_id_present": true,
+      "name_id_is_username": true,
+      "username_attribute_present": true
+     }
+    }
+   ],
+   "state": "",
+   "claims": {}
+  },
+  {
+   "id": "python3-saml",
+   "language": "python",
+   "library": "python3-saml",
+   "version": "1.16.0",
+   "protocol": "saml",
+   "status": "supported",
+   "deprecation": null,
+   "build_state": "ran on 26.0.8, 26.2.5, 26.6.4",
+   "checks": [
+    {
+     "id": "S2",
+     "title": "SAML SP-initiated login accepted (response validated by the library)",
+     "doc": "design v0.3 \u00a77 (SAML); no documented difference 26.0-26.6 for Keycloak acting as IdP (UG26.4 \u00a72.15.23 only with Encrypt Assertions)",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "in_response_to_matches": true,
+      "login_ok": true
+     }
+    },
+    {
+     "id": "S3",
+     "title": "SAML NameID and attribute delivered",
+     "doc": "as S2",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "name_id_is_username": true,
+      "name_id_present": true,
+      "username_attribute_present": true
+     }
+    }
+   ],
+   "state": "",
+   "claims": {}
+  },
+  {
+   "id": "better-auth",
+   "language": "node",
+   "library": "better-auth",
+   "version": "1.7.1",
+   "protocol": "oidc",
+   "status": "supported",
+   "deprecation": null,
+   "build_state": "first-draft",
+   "checks": [
+    {
+     "id": "F1",
+     "title": "Authorization code flow with client secret",
+     "doc": "design v0.3 \u00a77 F1",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "token_obtained": true,
+      "session_created": true,
+      "id_token_present": true,
+      "issuer_matches": true,
+      "audience_ok": true
+     }
+    },
+    {
+     "id": "F4",
+     "title": "Format of session_state and sid",
+     "doc": "UG26.6 \u00a72.10.11",
+     "verdict": "matched",
+     "detail": "not reported by this runner: session_state_format",
+     "observed": {
+      "sid_format": "uuid"
+     }
+    },
+    {
+     "id": "F2",
+     "title": "Refresh token grant",
+     "doc": "design v0.3 \u00a77 F2",
+     "verdict": "matched",
+     "detail": "",
+     "observed": {
+      "refreshed": true
+     }
+    }
+   ],
+   "state": "",
+   "claims": {}
+  },
+  {
+   "id": "samlify-legacy",
+   "language": "node",
+   "library": "samlify",
+   "version": "<2.10.0",
+   "protocol": "saml",
+   "status": "deprecated",
+   "deprecation": {
+    "since": "2025-05",
+    "reason": "CVE-2025-47949 (signature wrapping, critical) fixed in 2.10.0",
+    "successor": "samlify >= 2.10.0",
+    "action": "Upgrade the library; teams on older versions should plan it now."
+   },
+   "build_state": null,
+   "checks": [],
+   "state": "Catalog entry only, no runner: shows how a library version is marked deprecated without changing code."
+  }
+ ]
+}

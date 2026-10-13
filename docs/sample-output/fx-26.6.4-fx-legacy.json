@@ -1,0 +1,1147 @@
+{
+  "tool": "kc_phase0 0.1",
+  "label": "fx-26.6.4-fx-legacy",
+  "generated": "2026-10-11T06:09:37Z",
+  "base_url": "https://192.0.2.10:8466",
+  "server_version": "26.6.4",
+  "realms": [
+    {
+      "realm": "fx-legacy",
+      "readable": true,
+      "secure_client_uris_executor": false,
+      "realm_attrs": {
+        "sslRequired": "external",
+        "ssoSessionIdleTimeout": 1800,
+        "ssoSessionMaxLifespan": 36000,
+        "rememberMe": false,
+        "revokeRefreshToken": false,
+        "refreshTokenMaxReuse": 0
+      },
+      "identity_providers": [],
+      "clients": [
+        {
+          "id": "64ca939c-9c20-4737-b1b4-06f87d624789",
+          "clientId": "account",
+          "name": "${client_account}",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": true,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "rootUrl": "${authBaseUrl}",
+          "baseUrl": "/realms/fx-legacy/account/",
+          "redirectUris": [
+            "/realms/fx-legacy/account/*"
+          ],
+          "webOrigins": [],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": true,
+          "attributes": {
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": []
+        },
+        {
+          "id": "9e1a63ef-fa13-487d-87aa-3c2c7cdc2df7",
+          "clientId": "account-console",
+          "name": "${client_account-console}",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": true,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "rootUrl": "${authBaseUrl}",
+          "baseUrl": "/realms/fx-legacy/account/",
+          "redirectUris": [
+            "/realms/fx-legacy/account/*"
+          ],
+          "webOrigins": [],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": true,
+          "attributes": {
+            "pkce.code.challenge.method": "S256",
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": []
+        },
+        {
+          "id": "30acc51e-305a-40a3-9d90-275416877c6b",
+          "clientId": "admin-cli",
+          "name": "${client_admin-cli}",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": true,
+          "bearerOnly": false,
+          "standardFlowEnabled": false,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": true,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [],
+          "webOrigins": [],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": true,
+          "attributes": {
+            "client.use.lightweight.access.token.enabled": "true",
+            "realm_client": "false"
+          },
+          "findings": []
+        },
+        {
+          "id": "aea0778f-5466-4112-8b89-9486eda55f6c",
+          "clientId": "broker",
+          "name": "${client_broker}",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": true,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [],
+          "webOrigins": [],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": true,
+          "attributes": {
+            "realm_client": "true"
+          },
+          "findings": []
+        },
+        {
+          "id": "aec013c0-948d-4923-be7c-268853fc8304",
+          "clientId": "fx-c11",
+          "name": "fx-c11",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [
+            "https://app.example.org/*"
+          ],
+          "webOrigins": [
+            "https://app.example.org"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "client.secret.creation.time": "[redacted]",
+            "client.use.lightweight.access.token.enabled": "true",
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": [
+            {
+              "rule": "C11",
+              "severity": "medium",
+              "introduced_in": "26.4.12",
+              "doc": "UG26.4 §2.3.4; UG26.6 §2.6.11",
+              "title": "Client issues lightweight access tokens: UserInfo rejects them (401)",
+              "client": "fx-c11",
+              "detail": "client.use.lightweight.access.token.enabled=true; fine unless a consumer calls UserInfo with this token",
+              "evidence": null,
+              "present_on_server": true
+            },
+            {
+              "rule": "C15",
+              "severity": "info",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.29",
+              "title": "Client authentication method inventory (enforced for newly registered clients)",
+              "client": "fx-c11",
+              "detail": "authentication method: client-secret",
+              "evidence": null,
+              "present_on_server": true
+            }
+          ]
+        },
+        {
+          "id": "2d27c4d6-1392-4a43-a108-c925213e09fd",
+          "clientId": "fx-c12",
+          "name": "fx-c12",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [
+            "https://app.example.org/*"
+          ],
+          "webOrigins": [
+            "https://app.example.org/"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "client.secret.creation.time": "[redacted]",
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": [
+            {
+              "rule": "C12",
+              "severity": "low",
+              "introduced_in": "26.6.3",
+              "doc": "UG26.6 §2.9.2",
+              "title": "Web origin is not a plain origin; invalid Origin requests are rejected with 403",
+              "client": "fx-c12",
+              "detail": "web origin is not scheme://host[:port]",
+              "evidence": "https://app.example.org/",
+              "present_on_server": true
+            },
+            {
+              "rule": "C15",
+              "severity": "info",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.29",
+              "title": "Client authentication method inventory (enforced for newly registered clients)",
+              "client": "fx-c12",
+              "detail": "authentication method: client-secret",
+              "evidence": null,
+              "present_on_server": true
+            }
+          ]
+        },
+        {
+          "id": "b03aa5e2-7283-4029-abc7-b746840c89a2",
+          "clientId": "fx-c16",
+          "name": "fx-c16",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": true,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [
+            "https://app.example.org/*"
+          ],
+          "webOrigins": [
+            "https://app.example.org"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "client.secret.creation.time": "[redacted]",
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": [
+            {
+              "rule": "C16",
+              "severity": "low",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.38",
+              "title": "Direct access grants (ROPC) enabled: invalid_grant now returns HTTP 400 instead of 401",
+              "client": "fx-c16",
+              "detail": "directAccessGrantsEnabled=true",
+              "evidence": null,
+              "present_on_server": true
+            },
+            {
+              "rule": "C15",
+              "severity": "info",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.29",
+              "title": "Client authentication method inventory (enforced for newly registered clients)",
+              "client": "fx-c16",
+              "detail": "authentication method: client-secret",
+              "evidence": null,
+              "present_on_server": true
+            }
+          ]
+        },
+        {
+          "id": "1e3bbeaa-00a4-4432-aadc-947e844f11d2",
+          "clientId": "fx-c4a",
+          "name": "fx-c4a",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [
+            "https://*.example.org/*"
+          ],
+          "webOrigins": [
+            "https://app.example.org"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "client.secret.creation.time": "[redacted]",
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": [
+            {
+              "rule": "C4a",
+              "severity": "high",
+              "introduced_in": "26.4.13",
+              "doc": "UG26.4 §2.2.1; UG26.6 §2.5.1",
+              "title": "Hostname wildcard in a redirect URI no longer works",
+              "client": "fx-c4a",
+              "detail": "wildcard in host part",
+              "evidence": "https://*.example.org/*",
+              "present_on_server": true
+            },
+            {
+              "rule": "C15",
+              "severity": "info",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.29",
+              "title": "Client authentication method inventory (enforced for newly registered clients)",
+              "client": "fx-c4a",
+              "detail": "authentication method: client-secret",
+              "evidence": null,
+              "present_on_server": true
+            }
+          ]
+        },
+        {
+          "id": "8c622867-de0f-46b0-86a2-1a385a6dcae4",
+          "clientId": "fx-c4b",
+          "name": "fx-c4b",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [
+            "https://host.example.org*"
+          ],
+          "webOrigins": [
+            "https://app.example.org"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "client.secret.creation.time": "[redacted]",
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": [
+            {
+              "rule": "C4b",
+              "severity": "medium",
+              "introduced_in": "26.4.13",
+              "doc": "UG26.4 §2.2.1; UG26.6 §2.5.1",
+              "title": "'https://host*' is now treated as 'https://host/*'",
+              "client": "fx-c4b",
+              "detail": "wildcard directly after host",
+              "evidence": "https://host.example.org*",
+              "present_on_server": true
+            },
+            {
+              "rule": "C15",
+              "severity": "info",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.29",
+              "title": "Client authentication method inventory (enforced for newly registered clients)",
+              "client": "fx-c4b",
+              "detail": "authentication method: client-secret",
+              "evidence": null,
+              "present_on_server": true
+            }
+          ]
+        },
+        {
+          "id": "3c10db82-6809-4ae4-8635-4b54fcb038f7",
+          "clientId": "fx-c5",
+          "name": "fx-c5",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [
+            "https://app.example.org/cb?state=x"
+          ],
+          "webOrigins": [
+            "https://app.example.org"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "allow.oidc.params.in.redirect.uris": "true",
+            "client.secret.creation.time": "[redacted]",
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": [
+            {
+              "rule": "C5",
+              "severity": "high",
+              "introduced_in": "26.6.7",
+              "doc": "UG26.6 §2.1.2",
+              "title": "OIDC parameter (state/code/session_state) inside a registered redirect URI, or the compatibility attribute is set",
+              "client": "fx-c5",
+              "detail": "parameter(s) state in registered URI",
+              "evidence": "https://app.example.org/cb?state=x",
+              "present_on_server": false
+            },
+            {
+              "rule": "C5",
+              "severity": "high",
+              "introduced_in": "26.6.7",
+              "doc": "UG26.6 §2.1.2",
+              "title": "OIDC parameter (state/code/session_state) inside a registered redirect URI, or the compatibility attribute is set",
+              "client": "fx-c5",
+              "detail": "attribute allow.oidc.params.in.redirect.uris=true (deprecated, removed in 27)",
+              "evidence": null,
+              "present_on_server": false
+            },
+            {
+              "rule": "C15",
+              "severity": "info",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.29",
+              "title": "Client authentication method inventory (enforced for newly registered clients)",
+              "client": "fx-c5",
+              "detail": "authentication method: client-secret",
+              "evidence": null,
+              "present_on_server": true
+            }
+          ]
+        },
+        {
+          "id": "220bf1b5-05e2-441e-b102-09192e2aacd8",
+          "clientId": "fx-c6",
+          "name": "fx-c6",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [
+            "https://app.example.org/*"
+          ],
+          "webOrigins": [
+            "https://app.example.org"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "client.secret.creation.time": "[redacted]",
+            "logoUri": "http://app.example.org/logo.png",
+            "post.logout.redirect.uris": "http://app.example.org/out",
+            "realm_client": "false"
+          },
+          "findings": [
+            {
+              "rule": "C6",
+              "severity": "medium",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.6.4",
+              "title": "'http' URL in a field that the secure-client-uris executor requires to be https",
+              "client": "fx-c6",
+              "detail": "post.logout.redirect.uris uses http (executor not found in realm policies)",
+              "evidence": "http://app.example.org/out",
+              "present_on_server": true
+            },
+            {
+              "rule": "C6",
+              "severity": "medium",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.6.4",
+              "title": "'http' URL in a field that the secure-client-uris executor requires to be https",
+              "client": "fx-c6",
+              "detail": "logoUri uses http (executor not found in realm policies)",
+              "evidence": "http://app.example.org/logo.png",
+              "present_on_server": true
+            },
+            {
+              "rule": "C15",
+              "severity": "info",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.29",
+              "title": "Client authentication method inventory (enforced for newly registered clients)",
+              "client": "fx-c6",
+              "detail": "authentication method: client-secret",
+              "evidence": null,
+              "present_on_server": true
+            }
+          ]
+        },
+        {
+          "id": "3f70d8b7-f4c6-4c34-afaa-db2264ce5e28",
+          "clientId": "fx-c7",
+          "name": "fx-c7",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-jwt",
+          "redirectUris": [
+            "https://app.example.org/*"
+          ],
+          "webOrigins": [
+            "https://app.example.org"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "client.secret.creation.time": "[redacted]",
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": [
+            {
+              "rule": "C7",
+              "severity": "medium",
+              "introduced_in": "26.2",
+              "doc": "UG26.2 §2.1.4",
+              "title": "JWT client authentication: only a single audience accepted",
+              "client": "fx-c7",
+              "detail": "clientAuthenticatorType=client-jwt",
+              "evidence": null,
+              "present_on_server": true
+            },
+            {
+              "rule": "C15",
+              "severity": "info",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.29",
+              "title": "Client authentication method inventory (enforced for newly registered clients)",
+              "client": "fx-c7",
+              "detail": "authentication method: client-jwt",
+              "evidence": null,
+              "present_on_server": true
+            }
+          ]
+        },
+        {
+          "id": "926428b5-b270-401a-8efa-d27811f98569",
+          "clientId": "fx-c8",
+          "name": "fx-c8",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [
+            "https://app.example.org/*"
+          ],
+          "webOrigins": [
+            "https://app.example.org"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "client.secret.creation.time": "[redacted]",
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false",
+            "standard.token.exchange.enabled": "true"
+          },
+          "findings": [
+            {
+              "rule": "C8",
+              "severity": "medium",
+              "introduced_in": "26.2",
+              "doc": "UG26.2 §2.1.6; UG26.6 §2.10.39",
+              "title": "Standard token exchange enabled on this client",
+              "client": "fx-c8",
+              "detail": "standard.token.exchange.enabled=true",
+              "evidence": null,
+              "present_on_server": true
+            },
+            {
+              "rule": "C15",
+              "severity": "info",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.29",
+              "title": "Client authentication method inventory (enforced for newly registered clients)",
+              "client": "fx-c8",
+              "detail": "authentication method: client-secret",
+              "evidence": null,
+              "present_on_server": true
+            }
+          ]
+        },
+        {
+          "id": "c619d953-b10c-4d4b-a90e-777b183b45a3",
+          "clientId": "fx-multi",
+          "name": "fx-multi",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": true,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [
+            "https://*.example.org/cb?code=1"
+          ],
+          "webOrigins": [
+            "https://app.example.org/x"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "client.secret.creation.time": "[redacted]",
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": [
+            {
+              "rule": "C4a",
+              "severity": "high",
+              "introduced_in": "26.4.13",
+              "doc": "UG26.4 §2.2.1; UG26.6 §2.5.1",
+              "title": "Hostname wildcard in a redirect URI no longer works",
+              "client": "fx-multi",
+              "detail": "wildcard in host part",
+              "evidence": "https://*.example.org/cb?code=1",
+              "present_on_server": true
+            },
+            {
+              "rule": "C5",
+              "severity": "high",
+              "introduced_in": "26.6.7",
+              "doc": "UG26.6 §2.1.2",
+              "title": "OIDC parameter (state/code/session_state) inside a registered redirect URI, or the compatibility attribute is set",
+              "client": "fx-multi",
+              "detail": "parameter(s) code in registered URI",
+              "evidence": "https://*.example.org/cb?code=1",
+              "present_on_server": false
+            },
+            {
+              "rule": "C12",
+              "severity": "low",
+              "introduced_in": "26.6.3",
+              "doc": "UG26.6 §2.9.2",
+              "title": "Web origin is not a plain origin; invalid Origin requests are rejected with 403",
+              "client": "fx-multi",
+              "detail": "web origin is not scheme://host[:port]",
+              "evidence": "https://app.example.org/x",
+              "present_on_server": true
+            },
+            {
+              "rule": "C16",
+              "severity": "low",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.38",
+              "title": "Direct access grants (ROPC) enabled: invalid_grant now returns HTTP 400 instead of 401",
+              "client": "fx-multi",
+              "detail": "directAccessGrantsEnabled=true",
+              "evidence": null,
+              "present_on_server": true
+            },
+            {
+              "rule": "C15",
+              "severity": "info",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.29",
+              "title": "Client authentication method inventory (enforced for newly registered clients)",
+              "client": "fx-multi",
+              "detail": "authentication method: client-secret",
+              "evidence": null,
+              "present_on_server": true
+            }
+          ]
+        },
+        {
+          "id": "16780906-7557-404d-8f0f-aae46e2da3ce",
+          "clientId": "fx-p1",
+          "name": "fx-p1",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": true,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [
+            "https://app.example.org/*"
+          ],
+          "webOrigins": [
+            "https://app.example.org"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": [
+            {
+              "rule": "P1",
+              "severity": "info",
+              "introduced_in": "-",
+              "doc": "design §4",
+              "title": "Public client: outside the confidential-client runner matrix, review manually",
+              "client": "fx-p1",
+              "detail": "publicClient=true",
+              "evidence": null,
+              "present_on_server": null
+            }
+          ]
+        },
+        {
+          "id": "b395204c-0018-4e38-9760-ffffedb37aa5",
+          "clientId": "kc-inventory",
+          "name": "kc-inventory",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": false,
+          "standardFlowEnabled": false,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": true,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [],
+          "webOrigins": [],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": false,
+          "attributes": {
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": [
+            {
+              "rule": "C15",
+              "severity": "info",
+              "introduced_in": "26.6.2",
+              "doc": "UG26.6 §2.10.29",
+              "title": "Client authentication method inventory (enforced for newly registered clients)",
+              "client": "kc-inventory",
+              "detail": "authentication method: client-secret",
+              "evidence": null,
+              "present_on_server": true
+            }
+          ]
+        },
+        {
+          "id": "472b4389-ab54-44e4-9eff-ff54027d9ff2",
+          "clientId": "realm-management",
+          "name": "${client_realm-management}",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": false,
+          "bearerOnly": true,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "redirectUris": [],
+          "webOrigins": [],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": true,
+          "attributes": {
+            "realm_client": "true"
+          },
+          "findings": []
+        },
+        {
+          "id": "bac4cdf1-c880-4f43-bea5-86eddc453839",
+          "clientId": "security-admin-console",
+          "name": "${client_security-admin-console}",
+          "protocol": "openid-connect",
+          "enabled": true,
+          "publicClient": true,
+          "bearerOnly": false,
+          "standardFlowEnabled": true,
+          "implicitFlowEnabled": false,
+          "directAccessGrantsEnabled": false,
+          "serviceAccountsEnabled": false,
+          "frontchannelLogout": false,
+          "clientAuthenticatorType": "client-secret",
+          "rootUrl": "${authAdminUrl}",
+          "baseUrl": "/admin/fx-legacy/console/",
+          "redirectUris": [
+            "/admin/fx-legacy/console/*"
+          ],
+          "webOrigins": [
+            "+"
+          ],
+          "defaultClientScopes": [
+            "web-origins",
+            "acr",
+            "roles",
+            "profile",
+            "basic",
+            "email"
+          ],
+          "optionalClientScopes": [
+            "address",
+            "phone",
+            "organization",
+            "offline_access",
+            "microprofile-jwt"
+          ],
+          "builtin": true,
+          "attributes": {
+            "client.use.lightweight.access.token.enabled": "true",
+            "pkce.code.challenge.method": "S256",
+            "post.logout.redirect.uris": "+",
+            "realm_client": "false"
+          },
+          "findings": []
+        }
+      ]
+    }
+  ],
+  "discovery": [
+    {
+      "route": "external",
+      "base": "https://192.0.2.10:8466",
+      "realm": "fx-legacy",
+      "findings": [],
+      "discovery_status": 200,
+      "issuer": "https://192.0.2.10:8466/realms/fx-legacy",
+      "endpoints": {
+        "authorization_endpoint": "https://192.0.2.10:8466/realms/fx-legacy/protocol/openid-connect/auth",
+        "token_endpoint": "https://192.0.2.10:8466/realms/fx-legacy/protocol/openid-connect/token",
+        "jwks_uri": "https://192.0.2.10:8466/realms/fx-legacy/protocol/openid-connect/certs",
+        "userinfo_endpoint": "https://192.0.2.10:8466/realms/fx-legacy/protocol/openid-connect/userinfo",
+        "end_session_endpoint": "https://192.0.2.10:8466/realms/fx-legacy/protocol/openid-connect/logout",
+        "introspection_endpoint": "https://192.0.2.10:8466/realms/fx-legacy/protocol/openid-connect/token/introspect"
+      },
+      "rfc8414_status": 200
+    }
+  ],
+  "readiness": [],
+  "read_access": [
+    {
+      "call": "serverinfo",
+      "status": 200
+    },
+    {
+      "call": "realm [fx-legacy]",
+      "status": 200
+    },
+    {
+      "call": "clients [fx-legacy]",
+      "status": 200
+    },
+    {
+      "call": "client-policies/profiles [fx-legacy]",
+      "status": 200
+    },
+    {
+      "call": "client-policies/policies [fx-legacy]",
+      "status": 200
+    },
+    {
+      "call": "identity-provider/instances [fx-legacy]",
+      "status": 403
+    }
+  ],
+  "summary": {
+    "clients_total": 12,
+    "clients_with_findings": 10,
+    "by_severity": {
+      "medium": 6,
+      "low": 4,
+      "high": 5
+    },
+    "discovery_findings": 0
+  }
+}

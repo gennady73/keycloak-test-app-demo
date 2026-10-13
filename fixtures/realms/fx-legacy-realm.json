@@ -1,0 +1,242 @@
+{
+  "realm": "fx-legacy",
+  "enabled": true,
+  "sslRequired": "external",
+  "clients": [
+    {
+      "clientId": "fx-c4a",
+      "name": "fx-c4a",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://*.example.org/*"
+      ],
+      "webOrigins": [
+        "https://app.example.org"
+      ],
+      "attributes": {}
+    },
+    {
+      "clientId": "fx-c4b",
+      "name": "fx-c4b",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://host.example.org*"
+      ],
+      "webOrigins": [
+        "https://app.example.org"
+      ],
+      "attributes": {}
+    },
+    {
+      "clientId": "fx-c5",
+      "name": "fx-c5",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://app.example.org/cb?state=x"
+      ],
+      "webOrigins": [
+        "https://app.example.org"
+      ],
+      "attributes": {
+        "allow.oidc.params.in.redirect.uris": "true"
+      }
+    },
+    {
+      "clientId": "fx-c6",
+      "name": "fx-c6",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://app.example.org/*"
+      ],
+      "webOrigins": [
+        "https://app.example.org"
+      ],
+      "attributes": {
+        "post.logout.redirect.uris": "http://app.example.org/out",
+        "logoUri": "http://app.example.org/logo.png"
+      }
+    },
+    {
+      "clientId": "fx-c7",
+      "name": "fx-c7",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://app.example.org/*"
+      ],
+      "webOrigins": [
+        "https://app.example.org"
+      ],
+      "attributes": {},
+      "clientAuthenticatorType": "client-jwt"
+    },
+    {
+      "clientId": "fx-c8",
+      "name": "fx-c8",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://app.example.org/*"
+      ],
+      "webOrigins": [
+        "https://app.example.org"
+      ],
+      "attributes": {
+        "standard.token.exchange.enabled": "true"
+      }
+    },
+    {
+      "clientId": "fx-c11",
+      "name": "fx-c11",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://app.example.org/*"
+      ],
+      "webOrigins": [
+        "https://app.example.org"
+      ],
+      "attributes": {
+        "client.use.lightweight.access.token.enabled": "true"
+      }
+    },
+    {
+      "clientId": "fx-c12",
+      "name": "fx-c12",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://app.example.org/*"
+      ],
+      "webOrigins": [
+        "https://app.example.org/"
+      ],
+      "attributes": {}
+    },
+    {
+      "clientId": "fx-c16",
+      "name": "fx-c16",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://app.example.org/*"
+      ],
+      "webOrigins": [
+        "https://app.example.org"
+      ],
+      "attributes": {}
+    },
+    {
+      "clientId": "fx-p1",
+      "name": "fx-p1",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://app.example.org/*"
+      ],
+      "webOrigins": [
+        "https://app.example.org"
+      ],
+      "attributes": {}
+    },
+    {
+      "clientId": "fx-multi",
+      "name": "fx-multi",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://*.example.org/cb?code=1"
+      ],
+      "webOrigins": [
+        "https://app.example.org/x"
+      ],
+      "attributes": {}
+    },
+    {
+      "clientId": "kc-inventory",
+      "name": "kc-inventory",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "fx-inventory-secret",
+      "serviceAccountsEnabled": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": [],
+      "webOrigins": [],
+      "attributes": {}
+    }
+  ],
+  "users": [
+    {
+      "username": "service-account-kc-inventory",
+      "enabled": true,
+      "serviceAccountClientId": "kc-inventory",
+      "clientRoles": {
+        "realm-management": [
+          "view-clients",
+          "view-realm"
+        ]
+      }
+    }
+  ]
+}

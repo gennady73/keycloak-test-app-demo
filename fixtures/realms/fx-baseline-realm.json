@@ -1,0 +1,98 @@
+{
+  "realm": "fx-baseline",
+  "enabled": true,
+  "sslRequired": "external",
+  "clients": [
+    {
+      "clientId": "fx-clean",
+      "name": "fx-clean",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://app.example.org/*"
+      ],
+      "webOrigins": [
+        "https://app.example.org"
+      ],
+      "attributes": {}
+    },
+    {
+      "clientId": "fx-saml",
+      "name": "fx-saml",
+      "enabled": true,
+      "protocol": "saml",
+      "publicClient": false,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": false,
+      "redirectUris": [
+        "https://app.example.org/saml/acs"
+      ],
+      "webOrigins": [],
+      "attributes": {
+        "saml_name_id_format": "username"
+      }
+    },
+    {
+      "clientId": "fx-bearer",
+      "name": "fx-bearer",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "bearerOnly": true,
+      "redirectUris": [],
+      "webOrigins": [],
+      "attributes": {}
+    },
+    {
+      "clientId": "fx-svc",
+      "name": "fx-svc",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": true,
+      "bearerOnly": false,
+      "redirectUris": [],
+      "webOrigins": [],
+      "attributes": {}
+    },
+    {
+      "clientId": "kc-inventory",
+      "name": "kc-inventory",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "secret": "fx-inventory-secret",
+      "serviceAccountsEnabled": true,
+      "standardFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "redirectUris": [],
+      "webOrigins": [],
+      "attributes": {}
+    }
+  ],
+  "users": [
+    {
+      "username": "service-account-kc-inventory",
+      "enabled": true,
+      "serviceAccountClientId": "kc-inventory",
+      "clientRoles": {
+        "realm-management": [
+          "view-clients",
+          "view-realm"
+        ]
+      }
+    }
+  ]
+}

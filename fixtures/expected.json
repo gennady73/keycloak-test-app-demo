@@ -1,0 +1,73 @@
+{
+  "_comment": "Expected rule IDs per non-built-in client (exact set). fx-future is reserved for 26.7/26.8 changes: add the 26.7 and 26.8 upgrading guides and I will fill it in.",
+  "realms": {
+    "fx-legacy": {
+      "clients": {
+        "kc-inventory": [
+          "C15"
+        ],
+        "fx-c4a": [
+          "C4a",
+          "C15"
+        ],
+        "fx-c4b": [
+          "C4b",
+          "C15"
+        ],
+        "fx-c5": [
+          "C5",
+          "C15"
+        ],
+        "fx-c6": [
+          "C6",
+          "C15"
+        ],
+        "fx-c7": [
+          "C7",
+          "C15"
+        ],
+        "fx-c8": [
+          "C8",
+          "C15"
+        ],
+        "fx-c11": [
+          "C11",
+          "C15"
+        ],
+        "fx-c12": [
+          "C12",
+          "C15"
+        ],
+        "fx-c16": [
+          "C16",
+          "C15"
+        ],
+        "fx-p1": [
+          "P1"
+        ],
+        "fx-multi": [
+          "C4a",
+          "C5",
+          "C12",
+          "C16",
+          "C15"
+        ]
+      }
+    },
+    "fx-baseline": {
+      "clients": {
+        "kc-inventory": [
+          "C15"
+        ],
+        "fx-clean": [
+          "C15"
+        ],
+        "fx-saml": [],
+        "fx-bearer": [],
+        "fx-svc": [
+          "C15"
+        ]
+      }
+    }
+  }
+}

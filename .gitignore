@@ -1,0 +1,14 @@
+.env
+certs/*
+!certs/.gitkeep
+out/
+out_*/
+**/node_modules/
+__pycache__/
+*.pyc
+.venv/
+*.log
+*.zip
+_to_delete/
+# Real settings, real results, notes: everything environment-specific lives here and never leaves the machine
+local/

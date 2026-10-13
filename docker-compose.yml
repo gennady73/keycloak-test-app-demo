@@ -1,0 +1,58 @@
+# Three Keycloak versions side by side (or one at a time). All share the same certs and fixture realms.
+#   docker compose up -d kc-266          one version
+#   docker compose up -d                 all three
+#   docker compose down                  remove containers (fresh database on next start)
+# Settings live in .env (HOST_IP, image tags, admin password).
+x-kc: &kc
+  build: .
+  command: ["start", "--optimized", "--import-realm"]
+  volumes:
+    - ./certs:/opt/keycloak/certs:ro
+    - ./fixtures/realms:/opt/keycloak/data/import:ro
+  restart: "no"
+
+x-env: &env
+  KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/kc.crt
+  KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/kc.key
+  KC_BOOTSTRAP_ADMIN_PASSWORD: ${KC_ADMIN_PASSWORD:-choose-one}
+
+services:
+  kc-2608:
+    <<: *kc
+    image: kc-local:${KC_TAG_2608:-26.0.8-1}
+    build:
+      context: .
+      args: { KEYCLOAK_VERSION: "${KC_TAG_2608:-26.0.8-1}", KEYCLOAK_IMAGE: "${KC_IMAGE:-docker.io/keycloak/keycloak}" }
+    ports: ["${HOST_IP}:8460:8443", "${HOST_IP}:9060:9000"]
+    environment: { <<: *env, KC_HOSTNAME: "https://${HOST_IP}:8460" }
+
+  kc-262:
+    <<: *kc
+    image: kc-local:${KC_TAG_262:-26.2.5-0}
+    build:
+      context: .
+      args: { KEYCLOAK_VERSION: "${KC_TAG_262:-26.2.5-0}", KEYCLOAK_IMAGE: "${KC_IMAGE:-docker.io/keycloak/keycloak}" }
+    ports: ["${HOST_IP}:8462:8443", "${HOST_IP}:9062:9000"]
+    environment: { <<: *env, KC_HOSTNAME: "https://${HOST_IP}:8462" }
+
+  kc-266:
+    <<: *kc
+    image: kc-local:${KC_TAG_266:-26.6.4-1}
+    build:
+      context: .
+      args: { KEYCLOAK_VERSION: "${KC_TAG_266:-26.6.4-1}", KEYCLOAK_IMAGE: "${KC_IMAGE:-docker.io/keycloak/keycloak}" }
+    ports: ["${HOST_IP}:8466:8443", "${HOST_IP}:9066:9000"]
+    environment: { <<: *env, KC_HOSTNAME: "https://${HOST_IP}:8466" }
+
+  # Replay of the issuer/hostname incident (check D1). Same 26.6 image, but reachable on 8467 while the server
+  # believes it lives on 8466 - what a proxy that hides the real port, or a wrong KC_HOSTNAME, does.
+  # Not started by a plain "docker compose up"; start it with:  docker compose --profile d1 up -d kc-266-d1
+  kc-266-d1:
+    <<: *kc
+    profiles: ["d1"]
+    image: kc-local:${KC_TAG_266:-26.6.4-1}
+    build:
+      context: .
+      args: { KEYCLOAK_VERSION: "${KC_TAG_266:-26.6.4-1}", KEYCLOAK_IMAGE: "${KC_IMAGE:-docker.io/keycloak/keycloak}" }
+    ports: ["${HOST_IP}:8467:8443", "${HOST_IP}:9067:9000"]
+    environment: { <<: *env, KC_HOSTNAME: "https://${HOST_IP}:8466" }

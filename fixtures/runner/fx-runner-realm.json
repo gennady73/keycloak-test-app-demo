@@ -1,0 +1,189 @@
+{
+ "realm": "fx-runner",
+ "enabled": true,
+ "sslRequired": "external",
+ "users": [
+  {
+   "username": "rn-user",
+   "enabled": true,
+   "emailVerified": true,
+   "firstName": "Runner",
+   "lastName": "Test",
+   "email": "rn-user@example.org",
+   "credentials": [
+    {
+     "type": "password",
+     "value": "rn-user-password",
+     "temporary": false
+    }
+   ]
+  }
+ ],
+ "clients": [
+  {
+   "clientId": "rn-plain",
+   "name": "rn-plain",
+   "enabled": true,
+   "protocol": "openid-connect",
+   "publicClient": false,
+   "secret": "rn-plain-secret",
+   "standardFlowEnabled": true,
+   "directAccessGrantsEnabled": false,
+   "serviceAccountsEnabled": false,
+   "redirectUris": [
+    "http://127.0.0.1:3100/callback"
+   ],
+   "webOrigins": [],
+   "attributes": {}
+  },
+  {
+   "clientId": "rn-node",
+   "name": "rn-node",
+   "enabled": true,
+   "protocol": "openid-connect",
+   "publicClient": false,
+   "secret": "rn-node-secret",
+   "standardFlowEnabled": true,
+   "directAccessGrantsEnabled": false,
+   "serviceAccountsEnabled": false,
+   "redirectUris": [
+    "http://127.0.0.1:3101/callback"
+   ],
+   "webOrigins": [],
+   "attributes": {}
+  },
+  {
+   "clientId": "rn-flask",
+   "name": "rn-flask",
+   "enabled": true,
+   "protocol": "openid-connect",
+   "publicClient": false,
+   "secret": "rn-flask-secret",
+   "standardFlowEnabled": true,
+   "directAccessGrantsEnabled": false,
+   "serviceAccountsEnabled": false,
+   "redirectUris": [
+    "http://127.0.0.1:3102/authorize"
+   ],
+   "webOrigins": [],
+   "attributes": {}
+  },
+  {
+   "clientId": "rn-svc",
+   "name": "rn-svc",
+   "enabled": true,
+   "protocol": "openid-connect",
+   "publicClient": false,
+   "secret": "rn-svc-secret",
+   "standardFlowEnabled": false,
+   "directAccessGrantsEnabled": false,
+   "serviceAccountsEnabled": true,
+   "redirectUris": [],
+   "webOrigins": [],
+   "attributes": {}
+  },
+  {
+   "clientId": "rn-ropc",
+   "name": "rn-ropc",
+   "enabled": true,
+   "protocol": "openid-connect",
+   "publicClient": false,
+   "secret": "rn-ropc-secret",
+   "standardFlowEnabled": false,
+   "directAccessGrantsEnabled": true,
+   "serviceAccountsEnabled": false,
+   "redirectUris": [],
+   "webOrigins": [],
+   "attributes": {}
+  },
+  {
+   "clientId": "rn-saml-node",
+   "name": "rn-saml-node",
+   "enabled": true,
+   "protocol": "saml",
+   "frontchannelLogout": true,
+   "redirectUris": [
+    "http://127.0.0.1:3103/acs"
+   ],
+   "webOrigins": [],
+   "attributes": {
+    "saml_assertion_consumer_url_post": "http://127.0.0.1:3103/acs",
+    "saml.server.signature": "true",
+    "saml.assertion.signature": "true",
+    "saml.client.signature": "true",
+    "saml_name_id_format": "username",
+    "saml_force_name_id_format": "true",
+    "saml.authnstatement": "true",
+    "saml.signature.algorithm": "RSA_SHA256",
+    "saml_signature_canonicalization_method": "http://www.w3.org/2001/10/xml-exc-c14n#",
+    "saml.force.post.binding": "true",
+    "saml.signing.certificate": "MIIDIzCCAgugAwIBAgIUQVomCYwAT5jiUYroDSoxEhA9nVYwDQYJKoZIhvcNAQELBQAwITEfMB0GA1UEAwwWcm4tc2FtbC1ub2RlIFRFU1QgT05MWTAeFw0yNjEwMTIxOTE0NDlaFw0zNjEwMDkxOTE0NDlaMCExHzAdBgNVBAMMFnJuLXNhbWwtbm9kZSBURVNUIE9OTFkwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQC0hDDX7RvBi3nx8eKjArbqOYrTi+rHA8HpkESxGhyzWyuEPGkD8cL4vDAb4ROPPT6/xXtR35o1HyA3y+FqtnhR6GCTs9Zddh145z5dO49rGowydRNjOhEaKS7tP95ughWevYTEWeI75VMEdIb+NcSXYqX022WzeY8VL6u6vJg/7Hj45BUnTXr0HSt/gds9Ne8hz+Rc0NFA/gWM1fe0Dft78yi1AU0P1aByk3Wf9jtuSFMz0gZgxGkKc3bsUKLX/R72pYjsD5/vxm5XZ63LYyCyCTYv8OnzGofxkTWIBDvZAZ8uBMRBlDKtIsaes4KnpgH+Kr1m/mrlSnWNLPmH3/R3AgMBAAGjUzBRMB0GA1UdDgQWBBSvLPypbl/dHoWY/IWkZ7Rh637HSzAfBgNVHSMEGDAWgBSvLPypbl/dHoWY/IWkZ7Rh637HSzAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4IBAQBKcFVyEwqLpn/gZtOwKn/9gzUh3Gm4otBisY7ozfECeaffGnnGCexFmHhZ8dB02AwrCedVb75p9stwV6/8fA1gcDtA4tRLbRHFy2HqQbxLQ8H7gx3EXa1ZaocHJRqk3QVXY42icGEQx0sDqN2Y5gTc+vO2drRhoXgh+vzNYGX242huep3Ef3WAlZ+4Vb6PGsDBAAzrV2pjat2aW5zO0YltmnHxFop/5pIlbC7UpdDFpH8/FaTLNtvB5qeiS7z/umxVnSEsxG6OZkBeeriDFcLjdrTFODbLH3J0uf9e86pWneyvCV9RR6+PXQr67lMySzsXvEJZfsAZfwnC96Rs03/+"
+   },
+   "protocolMappers": [
+    {
+     "name": "username",
+     "protocol": "saml",
+     "protocolMapper": "saml-user-property-mapper",
+     "config": {
+      "user.attribute": "username",
+      "attribute.name": "username",
+      "attribute.nameformat": "Basic",
+      "friendly.name": "username"
+     }
+    }
+   ]
+  },
+  {
+   "clientId": "rn-saml-py",
+   "name": "rn-saml-py",
+   "enabled": true,
+   "protocol": "saml",
+   "frontchannelLogout": true,
+   "redirectUris": [
+    "http://127.0.0.1:3104/acs"
+   ],
+   "webOrigins": [],
+   "attributes": {
+    "saml_assertion_consumer_url_post": "http://127.0.0.1:3104/acs",
+    "saml.server.signature": "true",
+    "saml.assertion.signature": "true",
+    "saml.client.signature": "false",
+    "saml_name_id_format": "username",
+    "saml_force_name_id_format": "true",
+    "saml.authnstatement": "true",
+    "saml.signature.algorithm": "RSA_SHA256",
+    "saml_signature_canonicalization_method": "http://www.w3.org/2001/10/xml-exc-c14n#",
+    "saml.force.post.binding": "true"
+   },
+   "protocolMappers": [
+    {
+     "name": "username",
+     "protocol": "saml",
+     "protocolMapper": "saml-user-property-mapper",
+     "config": {
+      "user.attribute": "username",
+      "attribute.name": "username",
+      "attribute.nameformat": "Basic",
+      "friendly.name": "username"
+     }
+    }
+   ]
+  },
+  {
+   "clientId": "rn-ba",
+   "name": "rn-ba",
+   "enabled": true,
+   "protocol": "openid-connect",
+   "publicClient": false,
+   "secret": "rn-ba-secret",
+   "standardFlowEnabled": true,
+   "directAccessGrantsEnabled": false,
+   "serviceAccountsEnabled": false,
+   "redirectUris": [
+    "http://127.0.0.1:3105/api/auth/callback/keycloak"
+   ],
+   "webOrigins": [],
+   "attributes": {}
+  }
+ ]
+}

@@ -1,0 +1,217 @@
+{
+  "_comment": "Manifest-driven catalog. status: supported | deprecated | planned | blocked. Deprecation is data: a 'deprecated' entry stays visible with its reason and successor. 'prereq' is a command that must exit 0, otherwise the runner is reported as not installed (never as failed). Runners marked build_state 'first-draft' were written without being able to install the library; the first real run decides.",
+  "runners": [
+    {
+      "id": "http-probe",
+      "language": "python",
+      "library": "(none, stdlib)",
+      "version": "-",
+      "protocol": "oidc",
+      "status": "supported",
+      "kind": "probe",
+      "cmd": [
+        "{python}",
+        "http_probe.py"
+      ],
+      "checks": [
+        "D3",
+        "C16",
+        "F5"
+      ],
+      "env": {
+        "RN_SVC_SECRET": "rn-svc-secret",
+        "RN_ROPC_SECRET": "rn-ropc-secret"
+      }
+    },
+    {
+      "id": "plain-http-code",
+      "language": "python",
+      "library": "(none, stdlib)",
+      "version": "-",
+      "protocol": "oidc",
+      "status": "supported",
+      "note": "Control: the same flow without any library. If this passes and a library fails, the library or its use is the cause.",
+      "kind": "web",
+      "port": 3100,
+      "client_id": "rn-plain",
+      "cmd": [
+        "{python}",
+        "plain_code_runner.py"
+      ],
+      "checks": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "env": {
+        "RN_CLIENT_SECRET": "rn-plain-secret"
+      }
+    },
+    {
+      "id": "passport-oauth2",
+      "language": "node",
+      "library": "passport-oauth2",
+      "version": "1.8.0",
+      "protocol": "oidc",
+      "status": "supported",
+      "build_state": "ran on 26.0.8, 26.2.5, 26.6.4",
+      "note": "Generic OAuth2: does not validate ID tokens (library design, per its documentation); the runner checks iss and aud itself, as an application would have to.",
+      "kind": "web",
+      "port": 3101,
+      "client_id": "rn-node",
+      "prereq": [
+        "node",
+        "-e",
+        "require('passport-oauth2')"
+      ],
+      "prereq_cwd": "node/passport-oauth2",
+      "install": "cd runners/node/passport-oauth2 && npm install   (needs the on-site registry)",
+      "cmd": [
+        "node",
+        "node/passport-oauth2/runner.js"
+      ],
+      "checks": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "env": {
+        "RN_CLIENT_SECRET": "rn-node-secret"
+      }
+    },
+    {
+      "id": "flask-oidc",
+      "language": "python",
+      "library": "flask-oidc",
+      "version": "2.4.0",
+      "protocol": "oidc",
+      "status": "supported",
+      "build_state": "ran on 26.0.8, 26.2.5, 26.6.4 (refresh not exercised)",
+      "kind": "web",
+      "port": 3102,
+      "client_id": "rn-flask",
+      "prereq": [
+        "{python}",
+        "-c",
+        "import flask_oidc, flask"
+      ],
+      "install": "pip install -r runners/python/flask-oidc/requirements.txt   (needs the on-site index)",
+      "cmd": [
+        "{python}",
+        "python/flask-oidc/runner.py"
+      ],
+      "checks": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "env": {
+        "RN_CLIENT_SECRET": "rn-flask-secret"
+      }
+    },
+    {
+      "id": "samlify",
+      "language": "node",
+      "library": "samlify",
+      "version": "2.13.1",
+      "protocol": "saml",
+      "status": "supported",
+      "build_state": "ran on 26.0.8, 26.2.5, 26.6.4",
+      "note": "Refuses to build a login request unless it signs it, because Keycloak's descriptor says WantAuthnRequestsSigned=true. Teams need an SP key pair and its certificate registered on the Keycloak client. Not a version change (same on 26.0.8, 26.2.5, 26.6.4). Needs a schema validator since 2.6; the runner uses @authenio/samlify-node-xmllint if installed and reports which one it used.",
+      "kind": "web",
+      "port": 3103,
+      "client_id": "rn-saml-node",
+      "prereq": [
+        "node",
+        "-e",
+        "require('samlify')"
+      ],
+      "prereq_cwd": "node/samlify",
+      "install": "cd runners/node/samlify && npm install",
+      "cmd": [
+        "node",
+        "node/samlify/runner.js"
+      ],
+      "checks": [
+        "S2",
+        "S3"
+      ],
+      "env": {}
+    },
+    {
+      "id": "python3-saml",
+      "language": "python",
+      "library": "python3-saml",
+      "version": "1.16.0",
+      "protocol": "saml",
+      "status": "supported",
+      "build_state": "ran on 26.0.8, 26.2.5, 26.6.4",
+      "note": "Needs native lxml/xmlsec (on RHEL 9: xmlsec1 packages); on Windows a prebuilt python-xmlsec wheel.",
+      "kind": "web",
+      "port": 3104,
+      "client_id": "rn-saml-py",
+      "prereq": [
+        "{python}",
+        "-c",
+        "import onelogin.saml2.auth, flask"
+      ],
+      "install": "pip install -r runners/python/python3-saml/requirements.txt",
+      "cmd": [
+        "{python}",
+        "python/python3-saml/runner.py"
+      ],
+      "checks": [
+        "S2",
+        "S3"
+      ],
+      "env": {}
+    },
+    {
+      "id": "better-auth",
+      "language": "node",
+      "library": "better-auth",
+      "version": "1.7.1",
+      "protocol": "oidc",
+      "status": "supported",
+      "note": "OIDC through the generic OAuth plugin, in-memory storage. npm install on Node 18 warns: kysely needs Node >= 22, nanostores >= 20, @noble/* >= 20.19 (EBADENGINE). Treat Node 18 as an unsupported combination. The SAML side (SSO plugin) is a later variant. In 1.7 the generic OAuth plugin uses the core social sign-in endpoints; the redirect URI is /api/auth/callback/<providerId> (not /oauth2/callback/...). A team upgrading from an older better-auth must change the registered redirect URI. Also in 1.7: getAccessToken and refreshToken no longer accept {providerId}; they need the library's account id or {useAccountCookie:true}, so code written for earlier versions fails with 'Invalid input'.",
+      "build_state": "first-draft",
+      "kind": "web",
+      "port": 3105,
+      "client_id": "rn-ba",
+      "prereq": [
+        "node",
+        "-e",
+        "import('better-auth').catch(()=>process.exit(1))"
+      ],
+      "prereq_cwd": "node/better-auth",
+      "install": "cd runners/node/better-auth && npm install",
+      "cmd": [
+        "node",
+        "node/better-auth/runner.mjs"
+      ],
+      "checks": [
+        "F1",
+        "F2",
+        "F4"
+      ],
+      "env": {
+        "RN_CLIENT_SECRET": "rn-ba-secret"
+      }
+    },
+    {
+      "id": "samlify-legacy",
+      "language": "node",
+      "library": "samlify",
+      "version": "<2.10.0",
+      "protocol": "saml",
+      "status": "deprecated",
+      "deprecation": {
+        "since": "2025-05",
+        "reason": "CVE-2025-47949 (signature wrapping, critical) fixed in 2.10.0",
+        "successor": "samlify >= 2.10.0",
+        "action": "Upgrade the library; teams on older versions should plan it now."
+      },
+      "note": "Catalog entry only, no runner: shows how a library version is marked deprecated without changing code."
+    }
+  ]
+}
