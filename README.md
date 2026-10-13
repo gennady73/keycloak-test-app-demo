@@ -38,4 +38,4 @@ Everything specific to your environment (real IPs, host names, admin password, s
 - Lab servers are upstream Keycloak images, not RHBK. Not yet run on 26.4, 26.6.6/26.6.7, staging or production.
 
 ## Requirements
-Python 3.8+ (standard library only for the tools), Node 20.19+ or 22 for better-auth (18 is enough for the rest), openssl, Docker or Podman with compose (lab only). No license file is included; add one before publishing publicly.
+Python 3.8+ (standard library only for the tools), Node 20.19+ or 22 for better-auth (18 is enough for the rest), openssl, Docker or Podman with compose (lab only). This project is MIT-licensed (`LICENCE`); see `LICENSE-NOTICE.md` for third-party libraries.
